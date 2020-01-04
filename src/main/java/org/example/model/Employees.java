@@ -30,9 +30,17 @@ public class Employees {
 
 
     public Employees() {
-
+        super();
     }
-
+    public Employees(Long id, Date birthDate, String firstName, String lastName, char gender, Date hireDate){
+        super();
+        this.id=id;
+        this.birthDate=birthDate;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.gender=gender;
+        this.hireDate=hireDate;
+    }
 
     public Long getId() {
         return id;
@@ -82,5 +90,15 @@ public class Employees {
         this.hireDate = hireDate;
     }
 
-
+    @Override
+    public String toString() {
+        return "Employees{" +
+                "id=" + id +
+                ", birthDate=" + birthDate +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", hireDate=" + hireDate +
+                '}';
+    }
 }
