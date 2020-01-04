@@ -7,7 +7,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 
-@RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
+//@RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
 public interface EmployeeRepository extends CrudRepository<Employees, Long> {
+
     public List<Employees> findByFirstName(String firstName);
+
+    public List<Employees> findByIdAndLastName(Long id, String lastName);
 }

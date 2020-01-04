@@ -43,5 +43,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findByFirstName(firstName);
     }
 
+    @Override
+    public List<Employees> findByIdAndLastName(Long id, String lastName) {
+        return employeeRepository.findByIdAndLastName(id, lastName);
+    }
+
 
 }

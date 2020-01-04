@@ -18,5 +18,7 @@ public interface EmployeeService {
 
     public List<Employees> findByFirstName(String firstName);
 
+    public List<Employees> findByIdAndLastName(Long id, String lastName);
+
 
 }

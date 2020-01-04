@@ -39,6 +39,11 @@ public class EmployeeController {
         return employeeService.findByFirstName(firstName);
     }
 
+    @RequestMapping(value = {"/search/{id}/{lastName}"}, method = RequestMethod.GET)
+    public List<Employees> findByIdAndLastName(@PathVariable("id") Long id,@PathVariable("lastName") String lastName){
+        return employeeService.findByIdAndLastName(id, lastName);
+    }
+
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     public Employees createEmployee(@RequestBody Employees employee){
         return employeeService.save(employee);
