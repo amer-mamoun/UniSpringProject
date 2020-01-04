@@ -5,11 +5,13 @@ import org.example.model.Employees;
 import org.example.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,6 +32,11 @@ public class EmployeeController {
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
     public Optional<Employees> findById(@PathVariable Long id){
         return employeeService.findById(id);
+    }
+
+    @RequestMapping(value = {"/search/{firstName}"}, method = RequestMethod.GET)
+    public List<Employees> findByFirstName(@PathVariable("firstName") String  firstName){
+        return employeeService.findByFirstName(firstName);
     }
 
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)

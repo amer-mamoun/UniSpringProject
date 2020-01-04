@@ -38,5 +38,10 @@ public class EmployeeServiceImpl implements EmployeeService {
          employeeRepository.deleteById(id);
     }
 
+    @Override
+    public List<Employees> findByFirstName(String firstName) {
+        return employeeRepository.findByFirstName(firstName);
+    }
+
 
 }
