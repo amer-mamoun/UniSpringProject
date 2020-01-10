@@ -2,15 +2,21 @@ package org.example.model;
 
 
 import javax.persistence.*;
+import javax.transaction.UserTransaction;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
+@Table(name = "employees")
 public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "emp_no", nullable = false)
     private Long id;
+
+    //@OneToMany(mappedBy = "employees")
+    //private Set<Salaries> salaries;
 
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
@@ -90,10 +96,19 @@ public class Employees {
         this.hireDate = hireDate;
     }
 
+    //public Set<Salaries> getSalaries() {
+    //    return salaries;
+   // }
+
+    //public void setSalaries(Set<Salaries> salaries) {
+    //    this.salaries = salaries;
+   // }
+
     @Override
     public String toString() {
         return "Employees{" +
                 "id=" + id +
+                /*", salaries=" + salaries +*/
                 ", birthDate=" + birthDate +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
